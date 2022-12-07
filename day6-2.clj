@@ -1,0 +1,11 @@
+(require '[clojure.string :as str])
+(require '[clojure.set])
+
+(->> (slurp "day6-input.txt")
+     (char-array)
+     (seq)
+     (partition 14 1)
+     (take-while #(< (count (set %)) 14))
+     (count)
+     (+ 14)
+     (println))
